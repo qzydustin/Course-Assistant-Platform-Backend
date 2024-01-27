@@ -1,0 +1,29 @@
+package com.hat.cap.entityDatabase;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import jakarta.persistence.*;
+
+@Entity
+@NoArgsConstructor(force = true)
+@Getter
+@Setter
+public class PostComment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @ManyToOne
+    @JoinColumn
+    private Post post;
+    @Column
+    private String content;
+    @ManyToOne
+    @JoinColumn
+    private Student student;
+    @ManyToOne
+    @JoinColumn
+    private Instructor instructor;
+
+}
